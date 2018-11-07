@@ -1,0 +1,14 @@
+C:\Users\ericc\Desktop\foop\exceptons\EmailTest\EmailTest\bin\Debug\EmailTest.exe.config
+C:\Users\ericc\Desktop\foop\exceptons\EmailTest\EmailTest\bin\Debug\EmailTest.exe
+C:\Users\ericc\Desktop\foop\exceptons\EmailTest\EmailTest\bin\Debug\EmailTest.pdb
+C:\Users\ericc\Desktop\foop\exceptons\EmailTest\EmailTest\obj\Debug\EmailTest.csprojResolveAssemblyReference.cache
+C:\Users\ericc\Desktop\foop\exceptons\EmailTest\EmailTest\obj\Debug\MainWindow.g.cs
+C:\Users\ericc\Desktop\foop\exceptons\EmailTest\EmailTest\obj\Debug\App.g.cs
+C:\Users\ericc\Desktop\foop\exceptons\EmailTest\EmailTest\obj\Debug\EmailTest_MarkupCompile.cache
+C:\Users\ericc\Desktop\foop\exceptons\EmailTest\EmailTest\obj\Debug\EmailTest_MarkupCompile.lref
+C:\Users\ericc\Desktop\foop\exceptons\EmailTest\EmailTest\obj\Debug\MainWindow.baml
+C:\Users\ericc\Desktop\foop\exceptons\EmailTest\EmailTest\obj\Debug\EmailTest.g.resources
+C:\Users\ericc\Desktop\foop\exceptons\EmailTest\EmailTest\obj\Debug\EmailTest.Properties.Resources.resources
+C:\Users\ericc\Desktop\foop\exceptons\EmailTest\EmailTest\obj\Debug\EmailTest.csproj.GenerateResource.Cache
+C:\Users\ericc\Desktop\foop\exceptons\EmailTest\EmailTest\obj\Debug\EmailTest.exe
+C:\Users\ericc\Desktop\foop\exceptons\EmailTest\EmailTest\obj\Debug\EmailTest.pdb
