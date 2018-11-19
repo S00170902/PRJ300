@@ -78,6 +78,7 @@
     <Content Include="Images\background.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\logo.png" />
     <Content Include="Styles.css" />
     <Content Include="Web.config" />
     <Content Include="WebForm1.aspx" />
