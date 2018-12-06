@@ -25,5 +25,10 @@ namespace PRJ300
                 GridView1.DataBind();
             }
         }
+
+        protected void onClick(object sender, EventArgs e)
+        {
+            //query to filter nulls
+        }
     }
 }
