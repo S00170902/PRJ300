@@ -12,18 +12,8 @@ namespace PRJ300
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
-        public bool nulls = false;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (nulls == true)
-            {
-                Label1.Visible = true;
-            }
-
-            else
-            {
-                Label1.Visible = false;
-            }
             using (SqlConnection sqlcon = new SqlConnection(ConfigurationManager.ConnectionStrings["S00171672ConnectionString"].ToString()))
             {
                 sqlcon.Open();
@@ -55,11 +45,6 @@ namespace PRJ300
                 sqlda.Fill(dtbl);
                 GridView1.DataSource = dtbl;
                 GridView1.DataBind();
-
-                if (dtbl != null)
-                {
-                    nulls = true;
-                }
             }
 
             using (SqlConnection sqlcon = new SqlConnection(ConfigurationManager.ConnectionStrings["S00171672ConnectionString"].ToString()))
@@ -70,11 +55,6 @@ namespace PRJ300
                 sqlda.Fill(dtbl);
                 GridView2.DataSource = dtbl;
                 GridView2.DataBind();
-
-                if (dtbl != null)
-                {
-                    nulls = true;
-                }
             }
         }
     }

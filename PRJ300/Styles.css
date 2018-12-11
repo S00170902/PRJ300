@@ -11,3 +11,13 @@
 .gv-class {
     margin-top: 15px;
 }
+
+.logo {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.div-class {
+    position: relative;
+}
