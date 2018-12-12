@@ -29,6 +29,15 @@
                 <asp:BoundField DataField="price" HeaderText="price" SortExpression="price" />
             </Columns>
         </asp:GridView>
+            <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" DataKeyNames="DEPARTMENT_ID" DataSourceID="SqlDataSource1">
+                <Columns>
+                    <asp:BoundField DataField="DEPARTMENT_ID" HeaderText="DEPARTMENT_ID" ReadOnly="True" SortExpression="DEPARTMENT_ID" />
+                    <asp:BoundField DataField="DEPARTMENT_NAME" HeaderText="DEPARTMENT_NAME" SortExpression="DEPARTMENT_NAME" />
+                    <asp:BoundField DataField="MANAGER_ID" HeaderText="MANAGER_ID" SortExpression="MANAGER_ID" />
+                    <asp:BoundField DataField="LOCATION_ID" HeaderText="LOCATION_ID" SortExpression="LOCATION_ID" />
+                </Columns>
+            </asp:GridView>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:OracleConnectionString %>" ProviderName="<%$ ConnectionStrings:OracleConnectionString.ProviderName %>" SelectCommand="SELECT * FROM &quot;DEPARTMENTS&quot;"></asp:SqlDataSource>
     </form>
 </body>
 </html>
