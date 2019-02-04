@@ -8,54 +8,36 @@ using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
 
+
 namespace PRJ300
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
+        SqlConnection sqlcon = new SqlConnection(ConfigurationManager.ConnectionStrings["S00171672ConnectionString"].ToString());
         protected void Page_Load(object sender, EventArgs e)
         {
-            using (SqlConnection sqlcon = new SqlConnection(ConfigurationManager.ConnectionStrings["S00171672ConnectionString"].ToString()))
-            {
-                sqlcon.Open();
-                SqlDataAdapter sqlda = new SqlDataAdapter(@"SELECT * FROM [campus\S00171672].DummyTable", sqlcon);
-                DataTable dtbl = new DataTable();
-                sqlda.Fill(dtbl);
-                GridView1.DataSource = dtbl;
-                GridView1.DataBind();
-            }
+            
 
-            using (SqlConnection sqlcon = new SqlConnection(ConfigurationManager.ConnectionStrings["S00171672ConnectionString"].ToString()))
+            DataTable dt = new DataTable();
+
+            SqlDataAdapter da = new SqlDataAdapter(@"SELECT * FROM dbo.ProductMasterData", sqlcon);
+
+            da.Fill(dt);
+            foreach (DataRow dr in dt.Rows)
             {
-                sqlcon.Open();
-                SqlDataAdapter sqlda = new SqlDataAdapter(@"SELECT * FROM [campus\S00171672].DummyTable2", sqlcon);
-                DataTable dtbl = new DataTable();
-                sqlda.Fill(dtbl);
-                GridView2.DataSource = dtbl;
-                GridView2.DataBind();
+                ListBox1.Items.Add(dr["Description"].ToString());
             }
+            
+            
+
+           
         }
 
-        protected void onClick(object sender, EventArgs e)
+        protected void Button_Click(object sender, EventArgs e)
         {
-            using (SqlConnection sqlcon = new SqlConnection(ConfigurationManager.ConnectionStrings["S00171672ConnectionString"].ToString()))
-            {
-                sqlcon.Open();
-                SqlDataAdapter sqlda = new SqlDataAdapter(@"SELECT * FROM [campus\S00171672].DummyTable WHERE Name is null OR price is null", sqlcon);
-                DataTable dtbl = new DataTable();
-                sqlda.Fill(dtbl);
-                GridView1.DataSource = dtbl;
-                GridView1.DataBind();
-            }
-
-            using (SqlConnection sqlcon = new SqlConnection(ConfigurationManager.ConnectionStrings["S00171672ConnectionString"].ToString()))
-            {
-                sqlcon.Open();
-                SqlDataAdapter sqlda = new SqlDataAdapter(@"SELECT * FROM [campus\S00171672].DummyTable2 WHERE Name is null OR price is null", sqlcon);
-                DataTable dtbl = new DataTable();
-                sqlda.Fill(dtbl);
-                GridView2.DataSource = dtbl;
-                GridView2.DataBind();
-            }
+            ListBox1.Items.Clear();
+             
         }
+        
     }
 }
