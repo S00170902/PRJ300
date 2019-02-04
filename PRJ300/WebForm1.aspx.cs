@@ -36,7 +36,16 @@ namespace PRJ300
         protected void Button_Click(object sender, EventArgs e)
         {
             ListBox1.Items.Clear();
-             
+            var ItemSearch = TextBox1.Text;
+            DataTable dt = new DataTable(); 
+
+            SqlDataAdapter da = new SqlDataAdapter(@"SELECT * FROM dbo.ProductMasterData WHERE DESCRIPTION like '%"+ItemSearch+"%'", sqlcon);
+
+            da.Fill(dt);
+            foreach (DataRow dr in dt.Rows)
+            {
+                ListBox1.Items.Add(dr["Description"].ToString());
+            }
         }
         
     }
