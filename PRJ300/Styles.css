@@ -14,6 +14,16 @@
     right: 0;
 }
 
+.bell {
+    padding: 10px;
+}
+
+.settings {
+    position: absolute;
+    top: 0;
+    right: 50px;
+}
+
 .div-class {
     position: relative;
     margin: 10px;
@@ -27,4 +37,20 @@
 .lb-class {
     width: auto;
     height: 240px;
+}
+
+.centered-div {
+    margin: auto;
+    width: 50%;
+}
+
+.input {
+    display: block;
+    margin: auto;
+    width: 50%;
+}
+
+.login-btn {
+    border-radius: 8px;
+    background-color: #ff5d55;
 }
