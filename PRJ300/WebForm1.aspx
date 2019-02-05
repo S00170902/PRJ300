@@ -10,11 +10,16 @@
 <body>
     <form id="form1" runat="server">
         <div class="div-class">
+            <img src="https://img.icons8.com/ios-glyphs/30/000000/alarm.png" class="bell">
+            <img src="https://img.icons8.com/material/24/000000/user-male-circle.png" class="logo">
+        </div>
+        <div class="div-class">
             <asp:TextBox ID="searchBox" runat="server" CssClass="tb-class"></asp:TextBox>
             <asp:Button ID="searchButton" runat="server" Text="Search" OnClick="searchButton_Click" cssClass="btn-class"/>
         </div>
         <div class="div-class">
-            <asp:ListBox ID="itemsListBox" runat="server" Height="264px" Width="227px"></asp:ListBox>
+            <asp:ListBox ID="tablesListBox" runat="server" CssClass="lb-class"></asp:ListBox>
+            <asp:ListBox ID="itemsListBox" runat="server" CssClass="lb-class"></asp:ListBox>
         </div>
     </form>
 </body>
