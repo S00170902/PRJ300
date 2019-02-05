@@ -14,16 +14,6 @@
     right: 0;
 }
 
-.bell {
-    padding: 10px;
-}
-
-.settings {
-    position: absolute;
-    top: 0;
-    right: 50px;
-}
-
 .div-class {
     position: relative;
     margin: 10px;
