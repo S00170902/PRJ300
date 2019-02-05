@@ -9,12 +9,13 @@
 </head>
 <body>
     <form id="form1" runat="server">
-               <div class="div-class">
-           <asp:Image ID="Image1" runat="server" CssClass="logo" ImageUrl="~/Images/logo.png" align="right"/>
-       </div>
-            <asp:ListBox ID="ListBox1" runat="server" Height="264px" Width="227px"></asp:ListBox>
-            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-            <asp:Button ID="Button1" runat="server" Text="Button"  OnClick="Button_Click"/>
+        <div class="div-class">
+            <asp:TextBox ID="searchBox" runat="server" CssClass="tb-class"></asp:TextBox>
+            <asp:Button ID="searchButton" runat="server" Text="Search" OnClick="searchButton_Click" cssClass="btn-class"/>
+        </div>
+        <div class="div-class">
+            <asp:ListBox ID="itemsListBox" runat="server" Height="264px" Width="227px"></asp:ListBox>
+        </div>
     </form>
 </body>
 </html>
