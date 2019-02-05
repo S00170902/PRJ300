@@ -8,10 +8,20 @@
     margin-top: 15px;
 }
 
-.logo {
+.user {
     position: absolute;
     top: 0;
     right: 0;
+}
+
+.bell {
+    padding: 10px;
+}
+
+.settings {
+    position: absolute;
+    top: 0;
+    right: 50px;
 }
 
 .div-class {
@@ -22,4 +32,9 @@
 .tb-class {
     border-radius: 8px;
     padding: 5px;
+}
+
+.lb-class {
+    width: auto;
+    height: 240px;
 }

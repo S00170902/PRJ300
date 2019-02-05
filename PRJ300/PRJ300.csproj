@@ -83,7 +83,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Images\bg_lightwoodfloor.jpg" />
     <Content Include="Images\logo.png" />
     <Content Include="Styles.css" />
     <Content Include="Web.config" />
