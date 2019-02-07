@@ -25,7 +25,7 @@ namespace PRJ300
             foreach (DataRow dr in dt.Rows)
             {
                 itemsListBox.Items.Add(dr["Description"].ToString());
-            }           
+            }
         }
 
         protected void searchButton_Click(object sender, EventArgs e)
@@ -42,6 +42,35 @@ namespace PRJ300
                 itemsListBox.Items.Add(dr["Description"].ToString());
             }
         }
-        
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+
+            itemsListBox.Items.Clear();
+            DataTable dt = new DataTable();
+
+            SqlDataAdapter da = new SqlDataAdapter(@"SELECT * FROM dbo.ProductMasterData ORDER BY Description ASC", sqlcon);
+
+            da.Fill(dt);
+            foreach (DataRow dr in dt.Rows)
+            {
+                itemsListBox.Items.Add(dr["Description"].ToString());
+            }
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+
+            itemsListBox.Items.Clear();
+            DataTable dt = new DataTable();
+
+            SqlDataAdapter da = new SqlDataAdapter(@"SELECT * FROM dbo.ProductMasterData ORDER BY Description DESC", sqlcon);
+
+            da.Fill(dt);
+            foreach (DataRow dr in dt.Rows)
+            {
+                itemsListBox.Items.Add(dr["Description"].ToString());
+            }
+        }
     }
 }
