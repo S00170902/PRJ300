@@ -23,6 +23,8 @@
             <asp:ListBox ID="itemsListBox" runat="server" CssClass="lb-class"></asp:ListBox>
             <asp:Button ID="Button1" runat="server" Text="A-Z" OnClick="Button1_Click" />
             <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Z-A" />
+            <asp:RadioButton ID="RadioButton1" GroupName="test" runat="server" OnCheckedChanged="RadioButton1_CheckedChanged" />
+            <asp:RadioButton ID="RadioButton2" GroupName="test" runat="server" OnCheckedChanged="RadioButton2_CheckedChanged" />
         </div>
     </form>
 </body>

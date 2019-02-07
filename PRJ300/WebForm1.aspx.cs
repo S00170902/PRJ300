@@ -94,5 +94,15 @@ namespace PRJ300
                 itemsListBox.Items.Add(dr["Description"].ToString());
             }
         }
+
+        protected void RadioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            itemsListBox.Items.Clear();
+        }
+
+        protected void RadioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            itemsListBox.Items.Clear();
+        }
     }
 }
