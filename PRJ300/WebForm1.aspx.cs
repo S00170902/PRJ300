@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
+using Oracle.ManagedDataAccess.Client;
 
 
 namespace PRJ300
@@ -14,17 +15,38 @@ namespace PRJ300
     public partial class WebForm1 : System.Web.UI.Page
     {
         SqlConnection sqlcon = new SqlConnection(ConfigurationManager.ConnectionStrings["S00171672ConnectionString"].ToString());
+        OracleConnection oracon = new OracleConnection(ConfigurationManager.ConnectionStrings["OracleConnectionString"].ToString());
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            DataTable dt = new DataTable();
 
-            SqlDataAdapter da = new SqlDataAdapter(@"SELECT * FROM dbo.ProductMasterData", sqlcon);
+            //DataTable dt = new DataTable();
 
-            da.Fill(dt);
-            foreach (DataRow dr in dt.Rows)
+            //SqlDataAdapter da = new SqlDataAdapter(@"SELECT * FROM dbo.ProductMasterData", sqlcon);
+
+            //da.Fill(dt);
+            //foreach (DataRow dr in dt.Rows)
+            //{
+            //    itemsListBox.Items.Add(dr["Description"].ToString());
+            //}
+
             {
-                itemsListBox.Items.Add(dr["Description"].ToString());
+                OracleCommand cmdd = new OracleCommand("select * from hr.CustomerMasterData", oracon);
+
+                oracon.Open();
+                cmdd.ExecuteNonQuery();
+
+                OracleDataReader dr = cmdd.ExecuteReader();
+
+                OracleDataAdapter da = new OracleDataAdapter(cmdd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                foreach (DataRow drr in dt.Rows)
+                {
+                    itemsListBox.Items.Add(drr["GROUP_CUSTOMER_NAME"].ToString());
+                }
             }
         }
 
