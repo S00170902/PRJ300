@@ -70,7 +70,7 @@ namespace PRJ300
             itemsListBox.Items.Clear();
             DataTable dt = new DataTable();
 
-            SqlDataAdapter da = new SqlDataAdapter(@"SELECT * FROM dbo.ProductMasterData ORDER BY isnumeric(Description) ASC", sqlcon);
+            SqlDataAdapter da = new SqlDataAdapter(@"SELECT * FROM dbo.ProductMasterData ORDER BY Description ASC", sqlcon);
 
             da.Fill(dt);
             foreach (DataRow dr in dt.Rows)
@@ -114,10 +114,8 @@ namespace PRJ300
                 }
             }
 
-            foreach (string key in vals.Keys)
-            {
-                System.Diagnostics.Debug.WriteLine(vals[key]);
-            }
+            details.DataSource = vals;
+            details.DataBind();
         }
     }
 }
