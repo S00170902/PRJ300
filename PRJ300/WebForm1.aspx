@@ -26,6 +26,9 @@
             <asp:ListBox ID="tablesListBox" runat="server" CssClass="lb-class"></asp:ListBox>
             <asp:ListBox ID="itemsListBox" runat="server" CssClass="lb-class" AutoPostBack="true" OnSelectedIndexChanged="itemsListBox_SelectedIndexChanged"></asp:ListBox>
             <asp:Repeater ID="details" runat="server">
+                <HeaderTemplate>
+                    <table>
+                </HeaderTemplate>
                 <ItemTemplate>
                     <tr>
                     <td> <%# DataBinder.Eval(Container.DataItem, "key") %> </td>
