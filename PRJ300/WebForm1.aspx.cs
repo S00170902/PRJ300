@@ -21,33 +21,33 @@ namespace PRJ300
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            //DataTable dt = new DataTable();
+            DataTable dt = new DataTable();
 
-            //SqlDataAdapter da = new SqlDataAdapter(@"SELECT * FROM dbo.ProductMasterData", sqlcon);
+            SqlDataAdapter da = new SqlDataAdapter(@"SELECT * FROM dbo.ProductMasterData", sqlcon);
 
-            //da.Fill(dt);
-            //foreach (DataRow dr in dt.Rows)
-            //{
-            //    itemsListBox.Items.Add(dr["Description"].ToString());
-            //}
-
+            da.Fill(dt);
+            foreach (DataRow dr in dt.Rows)
             {
-                OracleCommand cmdd = new OracleCommand("select * from hr.CustomerMasterData", oracon);
-
-                oracon.Open();
-                cmdd.ExecuteNonQuery();
-
-                OracleDataReader dr = cmdd.ExecuteReader();
-
-                OracleDataAdapter da = new OracleDataAdapter(cmdd);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-
-                foreach (DataRow drr in dt.Rows)
-                {
-                    itemsListBox.Items.Add(drr["GROUP_CUSTOMER_NAME"].ToString());
-                }
+                itemsListBox.Items.Add(dr["Description"].ToString());
             }
+
+            //{
+            //    OracleCommand cmdd = new OracleCommand("select * from hr.CustomerMasterData", oracon);
+
+            //    oracon.Open();
+            //    cmdd.ExecuteNonQuery();
+
+            //    OracleDataReader dr = cmdd.ExecuteReader();
+
+            //    OracleDataAdapter da = new OracleDataAdapter(cmdd);
+            //    DataTable dt = new DataTable();
+            //    da.Fill(dt);
+
+            //    foreach (DataRow drr in dt.Rows)
+            //    {
+            //        itemsListBox.Items.Add(drr["GROUP_CUSTOMER_NAME"].ToString());
+            //    }
+            //}
         }
 
         protected void searchButton_Click(object sender, EventArgs e)
@@ -65,9 +65,8 @@ namespace PRJ300
             }
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void RadioButton1_CheckedChanged(object sender, EventArgs e)
         {
-
             itemsListBox.Items.Clear();
             DataTable dt = new DataTable();
 
@@ -80,9 +79,8 @@ namespace PRJ300
             }
         }
 
-        protected void Button2_Click(object sender, EventArgs e)
+        protected void RadioButton2_CheckedChanged(object sender, EventArgs e)
         {
-
             itemsListBox.Items.Clear();
             DataTable dt = new DataTable();
 
@@ -93,16 +91,6 @@ namespace PRJ300
             {
                 itemsListBox.Items.Add(dr["Description"].ToString());
             }
-        }
-
-        protected void RadioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-            itemsListBox.Items.Clear();
-        }
-
-        protected void RadioButton2_CheckedChanged(object sender, EventArgs e)
-        {
-            itemsListBox.Items.Clear();
         }
     }
 }

@@ -21,10 +21,10 @@
         <div class="div-class">
             <asp:ListBox ID="tablesListBox" runat="server" CssClass="lb-class"></asp:ListBox>
             <asp:ListBox ID="itemsListBox" runat="server" CssClass="lb-class"></asp:ListBox>
-            <asp:Button ID="Button1" runat="server" Text="A-Z" OnClick="Button1_Click" />
-            <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Z-A" />
-            <asp:RadioButton ID="RadioButton1" GroupName="test" runat="server" OnCheckedChanged="RadioButton1_CheckedChanged" />
-            <asp:RadioButton ID="RadioButton2" GroupName="test" runat="server" OnCheckedChanged="RadioButton2_CheckedChanged" />
+            <asp:RadioButton ID="RadioButton1" GroupName="test" runat="server" AutoPostBack="true" OnCheckedChanged="RadioButton1_CheckedChanged" />
+            <label for="RadioButton1">A-Z</label>
+            <asp:RadioButton ID="RadioButton2" GroupName="test" runat="server" AutoPostBack="true" OnCheckedChanged="RadioButton2_CheckedChanged" />
+            <label for="RadioButton2">Z-A</label>
         </div>
     </form>
 </body>
