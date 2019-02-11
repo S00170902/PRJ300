@@ -65,12 +65,12 @@ namespace PRJ300
             }
         }
 
-        protected void RadioButton1_CheckedChanged(object sender, EventArgs e)
+        protected void AZRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             itemsListBox.Items.Clear();
             DataTable dt = new DataTable();
 
-            SqlDataAdapter da = new SqlDataAdapter(@"SELECT * FROM dbo.ProductMasterData ORDER BY Description ASC", sqlcon);
+            SqlDataAdapter da = new SqlDataAdapter(@"SELECT * FROM dbo.ProductMasterData ORDER BY isnumeric(Description) ASC", sqlcon);
 
             da.Fill(dt);
             foreach (DataRow dr in dt.Rows)
@@ -79,7 +79,7 @@ namespace PRJ300
             }
         }
 
-        protected void RadioButton2_CheckedChanged(object sender, EventArgs e)
+        protected void ZARadioButton_CheckedChanged(object sender, EventArgs e)
         {
             itemsListBox.Items.Clear();
             DataTable dt = new DataTable();
@@ -91,6 +91,13 @@ namespace PRJ300
             {
                 itemsListBox.Items.Add(dr["Description"].ToString());
             }
+        }
+
+        protected void itemsListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string desc = itemsListBox.SelectedItem.Value.ToString();
+
+            SqlDataAdapter da = new SqlDataAdapter(@"SELECT * FROM dbo.ProductMasterData WHERE Description LIKE '" + desc + "'", sqlcon);
         }
     }
 }

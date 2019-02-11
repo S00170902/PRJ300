@@ -17,14 +17,14 @@
         <div class="div-class">
             <asp:TextBox ID="searchBox" runat="server" CssClass="tb-class"></asp:TextBox>
             <asp:Button ID="searchButton" runat="server" Text="Search" OnClick="searchButton_Click" cssClass="btn-class"/>
+            <asp:RadioButton ID="AZRadioButton" GroupName="test" runat="server" AutoPostBack="true" OnCheckedChanged="AZRadioButton_CheckedChanged" />
+            <label for="AZRadioButton">A-Z</label>
+            <asp:RadioButton ID="ZARadioButton" GroupName="test" runat="server" AutoPostBack="true" OnCheckedChanged="ZARadioButton_CheckedChanged" />
+            <label for="ZARadioButton">Z-A</label>
         </div>
         <div class="div-class">
             <asp:ListBox ID="tablesListBox" runat="server" CssClass="lb-class"></asp:ListBox>
-            <asp:ListBox ID="itemsListBox" runat="server" CssClass="lb-class"></asp:ListBox>
-            <asp:RadioButton ID="RadioButton1" GroupName="test" runat="server" AutoPostBack="true" OnCheckedChanged="RadioButton1_CheckedChanged" />
-            <label for="RadioButton1">A-Z</label>
-            <asp:RadioButton ID="RadioButton2" GroupName="test" runat="server" AutoPostBack="true" OnCheckedChanged="RadioButton2_CheckedChanged" />
-            <label for="RadioButton2">Z-A</label>
+            <asp:ListBox ID="itemsListBox" runat="server" CssClass="lb-class" AutoPostBack="true" OnSelectedIndexChanged="itemsListBox_SelectedIndexChanged"></asp:ListBox>
         </div>
     </form>
 </body>
