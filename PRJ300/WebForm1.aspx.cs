@@ -98,6 +98,26 @@ namespace PRJ300
             string desc = itemsListBox.SelectedItem.Value.ToString();
 
             SqlDataAdapter da = new SqlDataAdapter(@"SELECT * FROM dbo.ProductMasterData WHERE Description LIKE '" + desc + "'", sqlcon);
+
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+
+            Dictionary<string, string> vals = new Dictionary<string, string>();
+
+            DataTable dt = ds.Tables[0];
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                for (int i = 0; i < dt.Columns.Count; i++)
+                {
+                    vals.Add(dt.Columns[i].ColumnName, dr[dt.Columns[i].ColumnName].ToString());
+                }
+            }
+
+            foreach (string key in vals.Keys)
+            {
+                System.Diagnostics.Debug.WriteLine(vals[key]);
+            }
         }
     }
 }
