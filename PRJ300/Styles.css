@@ -11,7 +11,7 @@
 .user {
     position: absolute;
     top: 0;
-    right: 0;
+    right: 10%;
 }
 
 .bell {
@@ -21,7 +21,7 @@
 .settings {
     position: absolute;
     top: 0;
-    right: 50px;
+    right: 20%;
 }
 
 .div-class {
@@ -61,10 +61,18 @@
 
 .dropdown-content {
     display: none;
-    position: relative;
+    position: fixed;
     border: 1px solid;
 }
 
 .user:hover .dropdown-content {
+    display: block;
+}
+
+.settings:hover .dropdown-content {
+    display: block;
+}
+
+.bell:hover .dropdown-content {
     display: block;
 }

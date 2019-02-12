@@ -17,9 +17,10 @@ namespace PRJ300
         SqlConnection sqlcon = new SqlConnection(ConfigurationManager.ConnectionStrings["S00171672ConnectionString"].ToString());
         OracleConnection oracon = new OracleConnection(ConfigurationManager.ConnectionStrings["OracleConnectionString"].ToString());
 
-
         protected void Page_Load(object sender, EventArgs e)
         {
+            userWelcome.Text = "Welcome Name";
+            //get user's name from login table
 
             DataTable dt = new DataTable();
 
@@ -116,6 +117,10 @@ namespace PRJ300
 
             details.DataSource = vals;
             details.DataBind();
+        }
+
+        protected void timeAllowedList_SelectedIndexChanged(object sender, EventArgs e)
+        {
         }
     }
 }
