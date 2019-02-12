@@ -54,3 +54,17 @@
     border-radius: 8px;
     background-color: #ff5d55;
 }
+
+.repeater-div {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: relative;
+    border: 1px solid;
+}
+
+.user:hover .dropdown-content {
+    display: block;
+}

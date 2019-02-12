@@ -12,7 +12,14 @@
         <div class="div-class">
             <img src="https://img.icons8.com/ios-glyphs/30/000000/alarm.png" class="bell">
             <img src="https://img.icons8.com/material/30/000000/automatic.png" class="settings">
-            <img src="https://img.icons8.com/material/24/000000/user-male-circle.png" class="user">
+            <div class="user">
+                <img src="https://img.icons8.com/material/24/000000/user-male-circle.png">
+                <div class="dropdown-content">
+                    <asp:Label ID="userWelcome" runat="server" Text="Label"></asp:Label>
+                    <br />
+                    <asp:HyperLink ID="signOut" runat="server" NavigateUrl="~/Login.aspx">Sign Out</asp:HyperLink>
+                </div>
+            </div>
         </div>
         <div class="div-class">
             <asp:TextBox ID="searchBox" runat="server" CssClass="tb-class"></asp:TextBox>
@@ -25,6 +32,8 @@
         <div class="div-class">
             <asp:ListBox ID="tablesListBox" runat="server" CssClass="lb-class"></asp:ListBox>
             <asp:ListBox ID="itemsListBox" runat="server" CssClass="lb-class" AutoPostBack="true" OnSelectedIndexChanged="itemsListBox_SelectedIndexChanged"></asp:ListBox>
+        </div>
+        <div class="repeater-div">
             <asp:Repeater ID="details" runat="server">
                 <HeaderTemplate>
                     <table>
