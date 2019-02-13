@@ -32,6 +32,12 @@ namespace PRJ300
                 itemsListBox.Items.Add(dr["Description"].ToString());
             }
 
+            string[] array1 = new string[] {"productmasterdata" };
+            string[] array2 = new string[] {"customermasterdata"};
+
+         
+
+
             //{
             //    OracleCommand cmdd = new OracleCommand("select * from hr.CustomerMasterData", oracon);
 
