@@ -39,6 +39,10 @@
             <label for="AZRadioButton">A-Z</label>
             <asp:RadioButton ID="ZARadioButton" GroupName="test" runat="server" AutoPostBack="true" OnCheckedChanged="ZARadioButton_CheckedChanged" />
             <label for="ZARadioButton">Z-A</label>
+            <asp:DropDownList ID="DropDownList1" runat="server">
+                <asp:ListItem>SQL</asp:ListItem>
+                <asp:ListItem>Oracle</asp:ListItem>
+            </asp:DropDownList>
         </div>
         <div class="div-class">
             <asp:ListBox ID="tablesListBox" runat="server" CssClass="lb-class"></asp:ListBox>
