@@ -19,8 +19,14 @@
             <div class="settings">
                 <img src="https://img.icons8.com/material/30/000000/automatic.png"/>
                 <div class="dropdown-content">
-                    <asp:Label ID="timeAllowed" runat="server">Null Time Allowed</asp:Label>
+                    <asp:Label runat="server">Null Time Allowed</asp:Label>
                     <asp:DropDownList ID="timeAllowedList" runat="server" AutoPostBack="true" OnSelectedIndexChanged="timeAllowedList_SelectedIndexChanged"></asp:DropDownList>
+                    <br />
+                    <asp:Label runat="server">Null Limit</asp:Label>
+                    <asp:DropDownList runat="server" ID="nullLimitList" AutoPostBack="true" OnSelectedIndexChanged="nullLimitList_SelectedIndexChanged"></asp:DropDownList>
+                    <br/>
+                    <asp:Label runat="server">Colour Scheme</asp:Label>
+                    <asp:DropDownList runat="server" ID="coloursList" AutoPostBack="true" OnSelectedIndexChanged="coloursList_SelectedIndexChanged"></asp:DropDownList>
                 </div>
             </div>
             <div class="user">

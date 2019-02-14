@@ -31,15 +31,6 @@ namespace PRJ300 {
         protected global::System.Web.UI.WebControls.ListBox nullsListBox;
         
         /// <summary>
-        /// timeAllowed control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label timeAllowed;
-        
-        /// <summary>
         /// timeAllowedList control.
         /// </summary>
         /// <remarks>
@@ -47,6 +38,24 @@ namespace PRJ300 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList timeAllowedList;
+        
+        /// <summary>
+        /// nullLimitList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList nullLimitList;
+        
+        /// <summary>
+        /// coloursList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList coloursList;
         
         /// <summary>
         /// userWelcome control.
