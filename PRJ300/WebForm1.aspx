@@ -39,13 +39,13 @@
             <label for="AZRadioButton">A-Z</label>
             <asp:RadioButton ID="ZARadioButton" GroupName="test" runat="server" AutoPostBack="true" OnCheckedChanged="ZARadioButton_CheckedChanged" />
             <label for="ZARadioButton">Z-A</label>
-            <asp:DropDownList ID="DropDownList1" runat="server">
+            <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="true" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
                 <asp:ListItem>SQL</asp:ListItem>
                 <asp:ListItem>Oracle</asp:ListItem>
             </asp:DropDownList>
         </div>
         <div class="div-class">
-            <asp:ListBox ID="tablesListBox" runat="server" CssClass="lb-class"></asp:ListBox>
+            <asp:ListBox ID="tablesListBox" runat="server" CssClass="lb-class" AutoPostBack="true" OnSelectedIndexChanged="tablesListBox_SelectedIndexChanged"></asp:ListBox>
             <asp:ListBox ID="itemsListBox" runat="server" CssClass="lb-class" AutoPostBack="true" OnSelectedIndexChanged="itemsListBox_SelectedIndexChanged"></asp:ListBox>
         <div class="repeater-div">
             <asp:Repeater ID="details" runat="server">
