@@ -24,7 +24,14 @@ namespace PRJ300
 
 protected void Page_Load(object sender, EventArgs e)
         {
-            userWelcome.Text = "Welcome Name";
+            {
+                if (Session["UserName"] == null)
+                    Response.Redirect("Login.aspx"); 
+            }
+
+               userWelcome.Text = "Welcome : " + Session["UserName"]; //displays username name on the avatar icon
+            
+            
             //get user's name from login table
             if (DropDownList1.SelectedItem.Text == "SQL")
             {

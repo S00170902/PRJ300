@@ -9,11 +9,50 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="centered-div">
-            <img src="Images/logo.png" />
-            <input id="userName" type="text" placeholder="Username" class="input"/>
-            <input id="password" type="text" placeholder="Password" class="input"/>
-            <asp:Button ID="loginButton" runat="server" Text="Login" CssClass="login-btn" />
+      <div class="centered-div">
+            <img src="Images/logo.png" style="width: 115px" />
+          </div>
+
+        <div style="width: 334px" class="centered-div">
+            <table style="margin:auto; border:5px solid white;">
+                <tr>
+                    <td>
+<asp:Label ID="Label1" runat="server" Text="username"></asp:Label>
+                    </td>
+                     <td>
+<asp:TextBox ID="username" runat="server"></asp:TextBox>
+                    </td>
+
+                </tr>
+
+                         <tr>
+                    <td>
+<asp:Label ID="Label2" runat="server" Text="password"></asp:Label>
+                    </td>
+                     <td>
+<asp:TextBox ID="password" runat="server" TextMode="Password"></asp:TextBox>
+                    </td>
+
+                </tr>
+
+                         <tr>
+                    <td>
+
+<asp:Label ID="errormessage" runat="server" Text="incorrect user details" Visible="False"></asp:Label>
+                             </td>
+                     <td>
+                         <asp:Button ID="buttonlogin" runat="server" Text="login" OnClick="buttonlogin_Click" />
+                             </td>
+
+                </tr>
+                         <tr>
+                    <td>
+                        &nbsp;</td>
+                  
+                </tr>
+
+            </table>
+            
         </div>
     </form>
 </body>
