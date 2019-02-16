@@ -38,17 +38,10 @@ namespace PRJ300
                         Response.Redirect("WebForm1.aspx");
                     }
 
-                    else if (dt.Rows[0]["Roles"].ToString() == "product")
+                    else if (dt.Rows[0]["Roles"].ToString() == "product" || dt.Rows[0]["Roles"].ToString() == "customer")
                     {
                         Session["UserName"] = username.Text.Trim();
                         Response.Redirect("WebForm2.aspx");
-                    }
-
-                    else if (dt.Rows[0]["Roles"].ToString() == "customer")
-                    {
-                        Session["UserName"] = username.Text.Trim();
-                        Response.Redirect("WebForm3.aspx");
-
                     }
 
                     else

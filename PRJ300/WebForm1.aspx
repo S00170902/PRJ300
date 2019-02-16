@@ -20,13 +20,25 @@
                 <img src="https://img.icons8.com/material/30/000000/automatic.png"/>
                 <div class="dropdown-content">
                     <asp:Label runat="server">Null Time Allowed</asp:Label>
-                    <asp:DropDownList ID="timeAllowedList" runat="server" AutoPostBack="true" OnSelectedIndexChanged="timeAllowedList_SelectedIndexChanged"></asp:DropDownList>
+                    <asp:DropDownList ID="timeAllowedList" runat="server" AutoPostBack="true" OnSelectedIndexChanged="timeAllowedList_SelectedIndexChanged">
+                        <asp:ListItem>1 day</asp:ListItem>
+                        <asp:ListItem>2 days</asp:ListItem>
+                        <asp:ListItem>3 days</asp:ListItem>
+                        <asp:ListItem>4 days</asp:ListItem>
+                    </asp:DropDownList>
                     <br />
                     <asp:Label runat="server">Null Limit</asp:Label>
-                    <asp:DropDownList runat="server" ID="nullLimitList" AutoPostBack="true" OnSelectedIndexChanged="nullLimitList_SelectedIndexChanged"></asp:DropDownList>
+                    <asp:DropDownList runat="server" ID="nullLimitList" AutoPostBack="true" OnSelectedIndexChanged="nullLimitList_SelectedIndexChanged">
+                        <asp:ListItem>50</asp:ListItem>
+                        <asp:ListItem>60</asp:ListItem>
+                        <asp:ListItem>70</asp:ListItem>
+                    </asp:DropDownList>
                     <br/>
                     <asp:Label runat="server">Colour Scheme</asp:Label>
-                    <asp:DropDownList runat="server" ID="coloursList" AutoPostBack="true" OnSelectedIndexChanged="coloursList_SelectedIndexChanged"></asp:DropDownList>
+                    <asp:DropDownList runat="server" ID="coloursList" AutoPostBack="true" OnSelectedIndexChanged="coloursList_SelectedIndexChanged">
+                        <asp:ListItem>Red</asp:ListItem>
+                        <asp:ListItem>Blue</asp:ListItem>
+                    </asp:DropDownList>
                 </div>
             </div>
             <div class="user">

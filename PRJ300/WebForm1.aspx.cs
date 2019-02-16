@@ -227,7 +227,6 @@ protected void Page_Load(object sender, EventArgs e)
 
         protected void itemsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine(itemsListBox.SelectedItem.Value.ToString());
             string desc = itemsListBox.SelectedItem.Value.ToString();
 
             if (count == 0)
