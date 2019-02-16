@@ -29,59 +29,60 @@ protected void Page_Load(object sender, EventArgs e)
                     Response.Redirect("Login.aspx"); 
             }
 
-               userWelcome.Text = "Welcome : " + Session["UserName"]; //displays username name on the avatar icon
+            userWelcome.Text = "Welcome: " + Session["UserName"]; //displays username name on the avatar icon
             
-            
-            //get user's name from login table
-            if (DropDownList1.SelectedItem.Text == "SQL")
+            if(!IsPostBack)
             {
-                count = 0;
-            }
-            else if (DropDownList1.SelectedItem.Text == "Oracle")
-            {
-                count = 1;
-            }
-            if (count == 0)
-            {
-                tablesListBox.Items.Clear();
-                for (int i = 0; i < array1.GetLength(0); i++)
+                if (DropDownList1.SelectedItem.Text == "SQL")
                 {
-                    tablesListBox.Items.Add(array1[i].ToString());
+                    count = 0;
                 }
-                itemsListBox.Items.Clear();
-                DataTable dt = new DataTable();
-
-                SqlDataAdapter da = new SqlDataAdapter(@"SELECT * FROM dbo.ProductMasterData", sqlcon);
-
-                da.Fill(dt);
-                foreach (DataRow dr in dt.Rows)
+                else if (DropDownList1.SelectedItem.Text == "Oracle")
                 {
-                    itemsListBox.Items.Add(dr["Description"].ToString());
+                    count = 1;
                 }
-
-            }
-            else if (count == 1)
-            {
-                tablesListBox.Items.Clear();
-                for (int i = 0; i < array2.GetLength(0); i++)
+                if (count == 0)
                 {
-                    tablesListBox.Items.Add(array2[i].ToString());
+                    tablesListBox.Items.Clear();
+                    for (int i = 0; i < array1.GetLength(0); i++)
+                    {
+                        tablesListBox.Items.Add(array1[i].ToString());
+                    }
+                    itemsListBox.Items.Clear();
+                    DataTable dt = new DataTable();
+
+                    SqlDataAdapter da = new SqlDataAdapter(@"SELECT * FROM dbo.ProductMasterData", sqlcon);
+
+                    da.Fill(dt);
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        itemsListBox.Items.Add(dr["DESCRIPTION"].ToString());
+                    }
+
                 }
-                itemsListBox.Items.Clear();
-                OracleCommand cmdd = new OracleCommand("select * from hr.CustomerMasterData", oracon);
-
-                oracon.Open();
-                cmdd.ExecuteNonQuery();
-
-                OracleDataReader dr = cmdd.ExecuteReader();
-
-                OracleDataAdapter da = new OracleDataAdapter(cmdd);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-
-                foreach (DataRow drr in dt.Rows)
+                else if (count == 1)
                 {
-                    itemsListBox.Items.Add(drr["GROUP_CUSTOMER_NAME"].ToString());
+                    tablesListBox.Items.Clear();
+                    for (int i = 0; i < array2.GetLength(0); i++)
+                    {
+                        tablesListBox.Items.Add(array2[i].ToString());
+                    }
+                    itemsListBox.Items.Clear();
+                    OracleCommand cmdd = new OracleCommand("select * from hr.CustomerMasterData", oracon);
+
+                    oracon.Open();
+                    cmdd.ExecuteNonQuery();
+
+                    OracleDataReader dr = cmdd.ExecuteReader();
+
+                    OracleDataAdapter da = new OracleDataAdapter(cmdd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    foreach (DataRow drr in dt.Rows)
+                    {
+                        itemsListBox.Items.Add(drr["GROUP_CUSTOMER_NAME"].ToString());
+                    }
                 }
             }
 
@@ -133,7 +134,7 @@ protected void Page_Load(object sender, EventArgs e)
                 da.Fill(dt);
                 foreach (DataRow dr in dt.Rows)
                 {
-                    itemsListBox.Items.Add(dr["Description"].ToString());
+                    itemsListBox.Items.Add(dr["DESCRIPTION"].ToString());
                 }
             }
             else if (count == 1)
@@ -168,11 +169,11 @@ protected void Page_Load(object sender, EventArgs e)
             DataTable dt = new DataTable();
             if (count == 0)
             {
-                SqlDataAdapter da = new SqlDataAdapter(@"SELECT * FROM dbo.ProductMasterData ORDER BY Description ASC", sqlcon);
+                SqlDataAdapter da = new SqlDataAdapter(@"SELECT * FROM dbo.ProductMasterData ORDER BY DESCRIPTION ASC", sqlcon);
                 da.Fill(dt);
                 foreach (DataRow dr in dt.Rows)
                 {
-                    itemsListBox.Items.Add(dr["Description"].ToString());
+                    itemsListBox.Items.Add(dr["DESCRIPTION"].ToString());
                 }
             }
             else if (count == 1)
@@ -202,11 +203,11 @@ protected void Page_Load(object sender, EventArgs e)
             DataTable dt = new DataTable();
             if (count == 0)
             {
-                SqlDataAdapter da = new SqlDataAdapter(@"SELECT * FROM dbo.ProductMasterData ORDER BY Description DESC", sqlcon);
+                SqlDataAdapter da = new SqlDataAdapter(@"SELECT * FROM dbo.ProductMasterData ORDER BY DESCRIPTION DESC", sqlcon);
                 da.Fill(dt);
                 foreach (DataRow dr in dt.Rows)
                 {
-                    itemsListBox.Items.Add(dr["Description"].ToString());
+                    itemsListBox.Items.Add(dr["DESCRIPTION"].ToString());
                 }
             }
             else if (count == 1)
@@ -226,11 +227,12 @@ protected void Page_Load(object sender, EventArgs e)
 
         protected void itemsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            System.Diagnostics.Debug.WriteLine(itemsListBox.SelectedItem.Value.ToString());
             string desc = itemsListBox.SelectedItem.Value.ToString();
 
             if (count == 0)
             {
-                SqlDataAdapter da = new SqlDataAdapter(@"SELECT * FROM dbo.ProductMasterData WHERE Description LIKE '" + desc + "'", sqlcon);
+                SqlDataAdapter da = new SqlDataAdapter(@"SELECT * FROM dbo.ProductMasterData WHERE DESCRIPTION LIKE '" + desc + "'", sqlcon);
 
                 DataSet ds = new DataSet();
                 da.Fill(ds);
@@ -305,7 +307,7 @@ protected void Page_Load(object sender, EventArgs e)
                 da.Fill(dt);
                 foreach (DataRow dr in dt.Rows)
                 {
-                    itemsListBox.Items.Add(dr["Description"].ToString());
+                    itemsListBox.Items.Add(dr["DESCRIPTION"].ToString());
                 }
 
             }
@@ -349,7 +351,7 @@ protected void Page_Load(object sender, EventArgs e)
             //    da.Fill(dt);
             //    foreach (DataRow dr in dt.Rows)
             //    {
-            //        itemsListBox.Items.Add(dr["Description"].ToString());
+            //        itemsListBox.Items.Add(dr["DESCRIPTION"].ToString());
             //    }
             //}
             //else if (count == 1)
