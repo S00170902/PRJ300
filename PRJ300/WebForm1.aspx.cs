@@ -275,10 +275,6 @@ protected void Page_Load(object sender, EventArgs e)
             }
         }
 
-        protected void timeAllowedList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (DropDownList1.SelectedItem.Text == "SQL")
@@ -364,6 +360,10 @@ protected void Page_Load(object sender, EventArgs e)
             //        itemsListBox.Items.Add(dr["GROUP_CUSTOMER_NAME"].ToString());
             //    }
             //}
+        }
+
+        protected void timeAllowedList_SelectedIndexChanged(object sender, EventArgs e)
+        {
         }
 
         protected void nullLimitList_SelectedIndexChanged(object sender, EventArgs e)

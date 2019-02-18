@@ -17,7 +17,7 @@
             <table style="margin:auto; border:5px solid white;">
                 <tr>
                     <td>
-<asp:Label ID="Label1" runat="server" Text="username"></asp:Label>
+<asp:Label ID="Label1" runat="server" Text="Username"></asp:Label>
                     </td>
                      <td>
 <asp:TextBox ID="username" runat="server"></asp:TextBox>
@@ -27,7 +27,7 @@
 
                          <tr>
                     <td>
-<asp:Label ID="Label2" runat="server" Text="password"></asp:Label>
+<asp:Label ID="Label2" runat="server" Text="Password"></asp:Label>
                     </td>
                      <td>
 <asp:TextBox ID="password" runat="server" TextMode="Password"></asp:TextBox>
@@ -38,10 +38,10 @@
                          <tr>
                     <td>
 
-<asp:Label ID="errormessage" runat="server" Text="incorrect user details" Visible="False"></asp:Label>
+<asp:Label ID="errormessage" runat="server" Text="Incorrect user details" Visible="False"></asp:Label>
                              </td>
                      <td>
-                         <asp:Button ID="buttonlogin" runat="server" Text="login" OnClick="buttonlogin_Click" />
+                         <asp:Button ID="buttonlogin" runat="server" Text="Login" OnClick="buttonlogin_Click" CssClass="btn-class"/>
                              </td>
 
                 </tr>
