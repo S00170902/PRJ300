@@ -41,7 +41,7 @@
 <asp:Label ID="errormessage" runat="server" Text="Incorrect user details" Visible="False"></asp:Label>
                              </td>
                      <td>
-                         <asp:Button ID="buttonlogin" runat="server" Text="Login" OnClick="buttonlogin_Click" CssClass="btn-class"/>
+                         <asp:Button ID="buttonlogin" runat="server" Text="Login" OnClick="buttonlogin_Click" CssClass="login-btn"/>
                              </td>
 
                 </tr>

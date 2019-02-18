@@ -71,9 +71,9 @@
                     <table>
                 </HeaderTemplate>
                 <ItemTemplate>
-                    <tr>
-                    <td> <%# DataBinder.Eval(Container.DataItem, "key") %> </td>
-                    <td> <%# DataBinder.Eval(Container.DataItem, "value") %></td>
+                    <tr style="border:1px solid black">
+                    <td style="background-color:#ff5d55; border:1px solid black"> <%# DataBinder.Eval(Container.DataItem, "key") %> </td>
+                    <td style="border:1px solid black"> <%# DataBinder.Eval(Container.DataItem, "value") %></td>
                 </tr>
                 </ItemTemplate>
             </asp:Repeater>
