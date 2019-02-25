@@ -18,10 +18,10 @@ namespace PRJ300
 
         protected void buttonlogin_Click(object sender, EventArgs e)
         {
-            using (SqlConnection sqlcon = new SqlConnection(@"Data Source=cairnssql\glencar;Initial Catalog=S00171672;Integrated Security=True"))
+            using (SqlConnection sqlcon = new SqlConnection(@"Server=tcp:rad302s00170902.database.windows.net,1433;Initial Catalog=PRJ300;Persist Security Info=False;User ID=s00170902;Password=Lassietwo2;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
             {
                 sqlcon.Open();
-                string query = "SELECT * FROM Logintable WHERE UserName=@username AND Password=@password";
+                string query = "SELECT * FROM LoginTbl WHERE UserName=@username AND Password=@password";
                 SqlCommand sqlcmd = new SqlCommand(query, sqlcon);
                 sqlcmd.Parameters.AddWithValue("@username", username.Text.Trim());
                 sqlcmd.Parameters.AddWithValue("@password", password.Text.Trim());
@@ -32,13 +32,13 @@ namespace PRJ300
 
                 if (dt.Rows.Count > 0)
                 {
-                    if (dt.Rows[0]["Roles"].ToString() == "admin")
+                    if (dt.Rows[0]["Role"].ToString() == "admin")
                     {
                         Session["UserName"] = username.Text.Trim();
                         Response.Redirect("WebForm1.aspx");
                     }
 
-                    else if (dt.Rows[0]["Roles"].ToString() == "product" || dt.Rows[0]["Roles"].ToString() == "customer")
+                    else if (dt.Rows[0]["Role"].ToString() == "product" || dt.Rows[0]["Role"].ToString() == "customer")
                     {
                         Session["UserName"] = username.Text.Trim();
                         Response.Redirect("WebForm2.aspx");
