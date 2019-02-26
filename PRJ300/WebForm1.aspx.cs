@@ -309,6 +309,7 @@ protected void Page_Load(object sender, EventArgs e)
             else if (count == 1)
             {
                 tablesListBox.Items.Clear();
+                itemsListBox.Items.Clear();
                 for (int i = 0; i < array2.GetLength(0); i++)
                 {
                     tablesListBox.Items.Add(array2[i].ToString());
