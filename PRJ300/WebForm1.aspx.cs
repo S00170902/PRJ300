@@ -231,7 +231,8 @@ protected void Page_Load(object sender, EventArgs e)
 
             if (count == 0)
             {
-                SqlDataAdapter da = new SqlDataAdapter(@"SELECT * FROM dbo.ProductMasterData WHERE DESCRIPTION LIKE '" + desc + "'", sqlcon);
+                string sql = string.Format("SELECT * FROM dbo.ProductMasterData WHERE DESCRIPTION LIKE '{0}'", desc.Replace("'", "''"));
+                SqlDataAdapter da = new SqlDataAdapter(@sql, sqlcon);
 
                 DataSet ds = new DataSet();
                 da.Fill(ds);
