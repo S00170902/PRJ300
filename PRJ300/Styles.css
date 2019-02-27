@@ -17,6 +17,9 @@
 
 .bell {
     padding: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .settings {

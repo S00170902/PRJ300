@@ -84,6 +84,22 @@ protected void Page_Load(object sender, EventArgs e)
                         itemsListBox.Items.Add(drr["GROUP_CUSTOMER_NAME"].ToString());
                     }
                 }
+
+                SqlCommand cmd = new SqlCommand("dbo.Notif", sqlcon);
+                cmd.CommandType = CommandType.StoredProcedure;
+                sqlcon.Open();
+                SqlDataReader rdr = cmd.ExecuteReader();
+                rdr.Close();
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
+                DataTable dataTable = new DataTable();
+                dataAdapter.Fill(dataTable);
+
+                string s = "Null in Product Sku Code: ";
+
+                foreach (DataRow dataRow in dataTable.Rows)
+                {
+                    nullsListBox.Items.Add(s + dataRow["Sku Code"].ToString());
+                }
             }
 
 
