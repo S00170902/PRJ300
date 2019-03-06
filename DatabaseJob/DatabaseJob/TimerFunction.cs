@@ -1,16 +1,16 @@
 using System;
 using System.Data.SqlClient;
-using System.Threading.Tasks;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Extensions.Logging;
+using System.Threading.Tasks;
 
 namespace DatabaseJob
 {
     public static class TimerFunction
     {
         [FunctionName("TimerFunction")]
-        public static async Task Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger log)
+        public static async Task RunAsync([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger log)
         {
             // Get the connection string from app settings and use it to create a connection.
             var str = Environment.GetEnvironmentVariable("sqldb_connection");
