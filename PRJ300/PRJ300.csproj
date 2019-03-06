@@ -57,6 +57,9 @@
     <Reference Include="Oracle.ManagedDataAccess, Version=4.122.18.3, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
       <HintPath>..\packages\Oracle.ManagedDataAccess.18.3.0\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
     </Reference>
+    <Reference Include="S22.Mail, Version=1.0.4668.31819, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\S22.Mail.1.0.4668.31819\lib\net45\S22.Mail.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />

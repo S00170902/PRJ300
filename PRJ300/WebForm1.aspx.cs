@@ -8,13 +8,15 @@ using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
 using Oracle.ManagedDataAccess.Client;
-
+using System.Net.Mail;
+using System.Collections;
 
 namespace PRJ300
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
         int count; //count for drop box selection
+        int days, limit; //for null limit for email
           
         string[] array1 = new string[] { "ProductMasterData" };
         string[] array2 = new string[] { "CustomerMasterData" };
@@ -385,16 +387,55 @@ protected void Page_Load(object sender, EventArgs e)
 
         protected void timeAllowedList_SelectedIndexChanged(object sender, EventArgs e)
         {
+            string selected = timeAllowedList.SelectedItem.Text;
+            days = int.Parse(selected.Substring(0, 1));
+
+            //use this in email method
         }
 
         protected void nullLimitList_SelectedIndexChanged(object sender, EventArgs e)
         {
+            string selected = nullLimitList.SelectedItem.Text;
+            limit = int.Parse(selected);
 
+            //use this in email method
         }
 
         protected void coloursList_SelectedIndexChanged(object sender, EventArgs e)
         {
+            string colour = coloursList.SelectedItem.Text;
+        }
 
+        protected void sendEmail()
+        {
+            int timeInMins = 288 * days;
+            string sql = string.Format("SELECT SKU CODE from dbo.NullTbl WHERE Time > {0}", timeInMins);
+            SqlDataAdapter da = new SqlDataAdapter(sql, sqlcon);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+
+            List<string> list = new List<string>();
+            DataTable dt = ds.Tables[0];
+
+            foreach (var r in dt.Rows)
+            {
+                list.Add(r.ToString());
+            }
+
+            int counter = list.Count();
+
+            if(counter > limit)
+            {
+                MailMessage mail = new MailMessage("xxxx@gmail.com", "xxxx@gmail.com", "Subject", "Success!");
+                //from , to , subject, success
+                SmtpClient client = new SmtpClient("smtp.gmail.com");
+                //e.g smtp.outlook.com
+                client.Port = 587;
+                client.Credentials = new System.Net.NetworkCredential("xxxx@gmail.com", "xxxxxxxx");
+                //username , password
+                client.EnableSsl = true;
+                client.Send(mail);
+            }
         }
     }
 }
