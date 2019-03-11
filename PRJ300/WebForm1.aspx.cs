@@ -408,6 +408,8 @@ protected void Page_Load(object sender, EventArgs e)
 
         protected void sendEmail()
         {
+            string webpage = ""; //link for webpage for email
+
             int timeInMins = 288 * days;
             string sql = string.Format("SELECT SKU CODE from dbo.NullTbl WHERE Time > {0}", timeInMins);
             SqlDataAdapter da = new SqlDataAdapter(sql, sqlcon);
@@ -426,7 +428,7 @@ protected void Page_Load(object sender, EventArgs e)
 
             if(counter > limit)
             {
-                MailMessage mail = new MailMessage("cdfoodsnullalert@gmail.com", "Liamjonesprj300@gmail.com", "Null Notifier", "You have " + counter + " Nulls in your data!\nClick here to see more details");
+                MailMessage mail = new MailMessage("cdfoodsnullalert@gmail.com", "Liamjonesprj300@gmail.com", "Null Notifier", "You have " + counter + " Nulls in your data!\nClick <a href=\"" + webpage + "\">here</ID></a> to see more details");
                 //from , to , subject, success
                 mail.IsBodyHtml = true;
                 //making the body html to ensure hyperlink works
