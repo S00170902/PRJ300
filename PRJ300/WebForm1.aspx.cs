@@ -426,12 +426,12 @@ protected void Page_Load(object sender, EventArgs e)
 
             if(counter > limit)
             {
-                MailMessage mail = new MailMessage("xxxx@gmail.com", "xxxx@gmail.com", "Subject", "Success!");
+                MailMessage mail = new MailMessage("cdfoodsnullalert@gmail.com", "Liamjonesprj300@gmail.com", "Null Notifier", "You have " + counter + " Nulls in your data!\nClick here to see more details");
                 //from , to , subject, success
                 SmtpClient client = new SmtpClient("smtp.gmail.com");
                 //e.g smtp.outlook.com
                 client.Port = 587;
-                client.Credentials = new System.Net.NetworkCredential("xxxx@gmail.com", "xxxxxxxx");
+                client.Credentials = new System.Net.NetworkCredential("cdfoodsnullalert@gmail.com", "colmsangels");
                 //username , password
                 client.EnableSsl = true;
                 client.Send(mail);
