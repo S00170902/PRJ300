@@ -428,6 +428,8 @@ protected void Page_Load(object sender, EventArgs e)
             {
                 MailMessage mail = new MailMessage("cdfoodsnullalert@gmail.com", "Liamjonesprj300@gmail.com", "Null Notifier", "You have " + counter + " Nulls in your data!\nClick here to see more details");
                 //from , to , subject, success
+                mail.IsBodyHtml = true;
+                //making the body html to ensure hyperlink works
                 SmtpClient client = new SmtpClient("smtp.gmail.com");
                 //e.g smtp.outlook.com
                 client.Port = 587;
