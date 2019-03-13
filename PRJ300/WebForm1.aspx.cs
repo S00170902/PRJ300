@@ -428,8 +428,10 @@ protected void Page_Load(object sender, EventArgs e)
 
             if(counter > limit)
             {
-                MailMessage mail = new MailMessage("cdfoodsnullalert@gmail.com", "Liamjonesprj300@gmail.com", "Null Notifier", "You have " + counter + " Nulls in your data!\nClick <a href=\"" + webpage + "\">here</ID></a> to see more details");
+                MailMessage mail = new MailMessage("cdfoodsnullalert@gmail.com", "Liamjonesprj300@gmail.com");
                 //from , to , subject, success
+                mail.Subject = "Null Notifier";
+                mail.Body = "You have " + counter + " Nulls in your data!\nClick <a href=\"" + webpage + "\">here</ID></a> to see more details";
                 mail.IsBodyHtml = true;
                 //making the body html to ensure hyperlink works
                 SmtpClient client = new SmtpClient("smtp.gmail.com");
