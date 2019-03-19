@@ -248,6 +248,14 @@ protected void Page_Load(object sender, EventArgs e)
         {
             string desc = itemsListBox.SelectedItem.Value.ToString();
 
+            if (DropDownList1.SelectedItem.Text == "SQL")
+            {
+                count = 0;
+            }
+            else if (DropDownList1.SelectedItem.Text == "Oracle")
+            {
+                count = 1;
+            }
             if (count == 0)
             {
                 string sql = string.Format("SELECT * FROM dbo.ProductMasterData WHERE DESCRIPTION LIKE '{0}'", desc.Replace("'", "''"));
@@ -278,7 +286,7 @@ protected void Page_Load(object sender, EventArgs e)
                 DataSet ds = new DataSet();
                 da.Fill(ds);
 
-                Dictionary<string, string> vals = new Dictionary<string, string>();
+                Dictionary<string, string> vals2 = new Dictionary<string, string>();
 
                 DataTable dt = ds.Tables[0];
 
@@ -286,11 +294,11 @@ protected void Page_Load(object sender, EventArgs e)
                 {
                     for (int i = 0; i < dt.Columns.Count; i++)
                     {
-                        vals.Add(dt.Columns[i].ColumnName, dr[dt.Columns[i].ColumnName].ToString());
+                        vals2.Add(dt.Columns[i].ColumnName, dr[dt.Columns[i].ColumnName].ToString());
                     }
                 }
 
-                details.DataSource = vals;
+                details.DataSource = vals2;
                 details.DataBind();
             }
         }
