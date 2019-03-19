@@ -420,10 +420,10 @@ protected void Page_Load(object sender, EventArgs e)
 
         }
 
-        protected void sendEmail()
+        protected void SQLEmail()
         {
             string webpage = ""; //link for webpage for email
-
+            //code for time limit
             int timeInMins = 288 * days;
             string sql = string.Format("SELECT SKU CODE from dbo.NullTbl WHERE Time > {0}", timeInMins);
             SqlDataAdapter da = new SqlDataAdapter(sql, sqlcon);
@@ -440,12 +440,114 @@ protected void Page_Load(object sender, EventArgs e)
 
             int counter = list.Count();
 
-            if(counter > limit)
+            //code for null limit
+            string sql1 = string.Format("SELECT SKU CODE from dbo.NullTbl");
+            SqlDataAdapter da1 = new SqlDataAdapter(sql, sqlcon);
+            DataSet ds1 = new DataSet();
+            da1.Fill(ds1);
+
+            List<string> list1 = new List<string>();
+            DataTable dt1 = ds1.Tables[0];
+
+            foreach (var r in dt.Rows)
+            {
+                list1.Add(r.ToString());
+            }
+
+            
+
+            if(counter > 0) //time limit
             {
                 MailMessage mail = new MailMessage("cdfoodsnullalert@gmail.com", "Liamjonesprj300@gmail.com");
                 //from , to , subject, success
-                mail.Subject = "Null Notifier";
-                mail.Body = "You have " + counter + " Nulls in your data!\nClick <a href=\"" + webpage + "\">here</ID></a> to see more details";
+                mail.Subject = "SQL Null Notifier";
+                mail.Body = "You have " + counter + " Nulls in your product table that have existed for at least " + days +"days!\nClick <a href=\"" + webpage + "\">here</ID></a> to see more details";
+                mail.IsBodyHtml = true;
+                //making the body html to ensure hyperlink works
+                SmtpClient client = new SmtpClient("smtp.gmail.com");
+                //e.g smtp.outlook.com
+                client.Port = 587;
+                client.Credentials = new System.Net.NetworkCredential("cdfoodsnullalert@gmail.com", "colmsangels");
+                //username , password
+                client.EnableSsl = true;
+                client.Send(mail);
+            }
+            else if(list1.Count > limit) //null limit
+            {
+                MailMessage mail = new MailMessage("cdfoodsnullalert@gmail.com", "Liamjonesprj300@gmail.com");
+                //from , to , subject, success
+                mail.Subject = "SQL Null Notifier";
+                mail.Body = "You have " + list1.Count + " nulls in your products table. Urgent action is advised.";
+                mail.IsBodyHtml = true;
+                //making the body html to ensure hyperlink works
+                SmtpClient client = new SmtpClient("smtp.gmail.com");
+                //e.g smtp.outlook.com
+                client.Port = 587;
+                client.Credentials = new System.Net.NetworkCredential("cdfoodsnullalert@gmail.com", "colmsangels");
+                //username , password
+                client.EnableSsl = true;
+                client.Send(mail);
+            }
+        }
+
+        protected void ORAEmail()
+        {
+            string webpage = ""; //link for webpage for email
+            //code for time limit
+            int timeInMins = 288 * days;
+            string sql = string.Format("SELECT GROUP_CUSTOMER_CODE from hr.NULLTBL WHERE Time > {0}", timeInMins);
+            OracleDataAdapter da = new OracleDataAdapter(sql, oracon);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+
+            List<string> list = new List<string>();
+            DataTable dt = ds.Tables[0];
+
+            foreach (var r in dt.Rows)
+            {
+                list.Add(r.ToString());
+            }
+
+            int counter = list.Count();
+
+            //code for null limit
+            string sql1 = string.Format("SELECT GROUP_CUSTOMER_CODE from hr.NULLTBL");
+            OracleDataAdapter da1 = new OracleDataAdapter(sql1, oracon);
+            DataSet ds1 = new DataSet();
+            da1.Fill(ds1);
+
+            List<string> list1 = new List<string>();
+            DataTable dt1 = ds1.Tables[0];
+
+            foreach (var r in dt.Rows)
+            {
+                list1.Add(r.ToString());
+            }
+
+
+
+            if (counter > 0) //time limit
+            {
+                MailMessage mail = new MailMessage("cdfoodsnullalert@gmail.com", "Liamjonesprj300@gmail.com");
+                //from , to , subject, success
+                mail.Subject = "Oracle Null Notifier";
+                mail.Body = "You have " + counter + " Nulls in your SupplierMasterData table that have existed for at least " + days + "days!\nClick <a href=\"" + webpage + "\">here</ID></a> to see more details";
+                mail.IsBodyHtml = true;
+                //making the body html to ensure hyperlink works
+                SmtpClient client = new SmtpClient("smtp.gmail.com");
+                //e.g smtp.outlook.com
+                client.Port = 587;
+                client.Credentials = new System.Net.NetworkCredential("cdfoodsnullalert@gmail.com", "colmsangels");
+                //username , password
+                client.EnableSsl = true;
+                client.Send(mail);
+            }
+            else if (list1.Count > limit) //null limit
+            {
+                MailMessage mail = new MailMessage("cdfoodsnullalert@gmail.com", "Liamjonesprj300@gmail.com");
+                //from , to , subject, success
+                mail.Subject = "Oracle Null Notifier";
+                mail.Body = "You have " + list1.Count + " nulls in your supplierMasterData table. Urgent action is advised.";
                 mail.IsBodyHtml = true;
                 //making the body html to ensure hyperlink works
                 SmtpClient client = new SmtpClient("smtp.gmail.com");
