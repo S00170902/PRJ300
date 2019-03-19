@@ -14,7 +14,7 @@ namespace PRJ300
 {
     public partial class WebForm2 : System.Web.UI.Page
     {
-        SqlConnection sqlcon = new SqlConnection(ConfigurationManager.ConnectionStrings["S00171672ConnectionString"].ToString());
+        SqlConnection sqlcon = new SqlConnection(ConfigurationManager.ConnectionStrings["AzureConnectionString"].ToString());
         OracleConnection oracon = new OracleConnection(ConfigurationManager.ConnectionStrings["OracleConnectionString"].ToString());
 
 
