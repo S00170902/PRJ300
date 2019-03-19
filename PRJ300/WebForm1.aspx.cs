@@ -490,6 +490,12 @@ protected void Page_Load(object sender, EventArgs e)
             }
         }
 
+        protected void EmailBtn_Click(object sender, EventArgs e)
+        {
+            SQLEmail();
+            ORAEmail();
+        }
+
         protected void ORAEmail()
         {
             string webpage = ""; //link for webpage for email

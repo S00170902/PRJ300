@@ -80,6 +80,8 @@
         </div>
             <div class="bi-btn">
                 <asp:Button ID="Button1" runat="server" Text="Power BI" OnClick="Button1_Click" />
+                <br />
+                <asp:Button ID="EmailBtn" runat="server" Text="Send Email" OnClick="EmailBtn_Click" />
             </div>
             
         </div>

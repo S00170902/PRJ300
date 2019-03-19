@@ -43,6 +43,9 @@
                 </ItemTemplate>
             </asp:Repeater>
         </div>
+                        <div class="bi-btn">
+                <asp:Button ID="Button1" runat="server" Text="Power BI" OnClick="Button1_Click" />
+            </div>
         </div>
     </form>
 </body>
