@@ -406,6 +406,12 @@ protected void Page_Load(object sender, EventArgs e)
             string colour = coloursList.SelectedItem.Text;
         }
 
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("powerbi.aspx");
+
+        }
+
         protected void sendEmail()
         {
             string webpage = ""; //link for webpage for email
