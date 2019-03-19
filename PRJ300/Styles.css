@@ -77,3 +77,9 @@
 .bell:hover .dropdown-content {
     display: block;
 }
+
+.bi-btn {
+    position: absolute;
+    top: 1%;
+    right: 0;
+}

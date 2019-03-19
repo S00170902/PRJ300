@@ -65,7 +65,8 @@ namespace PRJ300
                 var ItemSearch = searchBox.Text;
                 DataTable dt = new DataTable();
 
-                SqlDataAdapter da = new SqlDataAdapter(@"SELECT * FROM dbo.ProductMasterData WHERE DESCRIPTION like '%" + ItemSearch + "%'", sqlcon);
+                string sql = string.Format("SELECT * FROM dbo.ProductMasterData WHERE DESCRIPTION like '%{0}%'", ItemSearch.Replace("'", "''"));
+                SqlDataAdapter da = new SqlDataAdapter(@sql, sqlcon);
 
                 da.Fill(dt);
                 foreach (DataRow dr in dt.Rows)
