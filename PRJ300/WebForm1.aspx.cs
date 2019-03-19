@@ -425,7 +425,7 @@ protected void Page_Load(object sender, EventArgs e)
             string webpage = ""; //link for webpage for email
             //code for time limit
             int timeInMins = 288 * days;
-            string sql = string.Format("SELECT SKU CODE from dbo.NullTbl WHERE Time > {0}", timeInMins);
+            string sql = string.Format("SELECT SKU CODE from dbo.NullTbl WHERE Time = {0}", timeInMins);
             SqlDataAdapter da = new SqlDataAdapter(sql, sqlcon);
             DataSet ds = new DataSet();
             da.Fill(ds);
@@ -461,7 +461,7 @@ protected void Page_Load(object sender, EventArgs e)
                 MailMessage mail = new MailMessage("cdfoodsnullalert@gmail.com", "Liamjonesprj300@gmail.com");
                 //from , to , subject, success
                 mail.Subject = "SQL Null Notifier";
-                mail.Body = "You have " + counter + " Nulls in your product table that have existed for at least " + days +"days!\nClick <a href=\"" + webpage + "\">here</ID></a> to see more details";
+                mail.Body = "You have at least " + counter + " Null(s) in your product table that have existed for " + days +"or more days!\nClick <a href=\"" + webpage + "\">here</ID></a> to see more details";
                 mail.IsBodyHtml = true;
                 //making the body html to ensure hyperlink works
                 SmtpClient client = new SmtpClient("smtp.gmail.com");
@@ -495,7 +495,7 @@ protected void Page_Load(object sender, EventArgs e)
             string webpage = ""; //link for webpage for email
             //code for time limit
             int timeInMins = 288 * days;
-            string sql = string.Format("SELECT GROUP_CUSTOMER_CODE from hr.NULLTBL WHERE Time > {0}", timeInMins);
+            string sql = string.Format("SELECT GROUP_CUSTOMER_CODE from hr.NULLTBL WHERE Time = {0}", timeInMins);
             OracleDataAdapter da = new OracleDataAdapter(sql, oracon);
             DataSet ds = new DataSet();
             da.Fill(ds);
@@ -531,7 +531,7 @@ protected void Page_Load(object sender, EventArgs e)
                 MailMessage mail = new MailMessage("cdfoodsnullalert@gmail.com", "Liamjonesprj300@gmail.com");
                 //from , to , subject, success
                 mail.Subject = "Oracle Null Notifier";
-                mail.Body = "You have " + counter + " Nulls in your SupplierMasterData table that have existed for at least " + days + "days!\nClick <a href=\"" + webpage + "\">here</ID></a> to see more details";
+                mail.Body = "You have at least " + counter + " Null(s) in your SupplierMasterData table that have existed for " + days + "or more days!\nClick <a href=\"" + webpage + "\">here</ID></a> to see more details";
                 mail.IsBodyHtml = true;
                 //making the body html to ensure hyperlink works
                 SmtpClient client = new SmtpClient("smtp.gmail.com");
