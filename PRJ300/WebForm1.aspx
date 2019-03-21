@@ -11,10 +11,10 @@
     <form id="form1" runat="server">
         <div class="div-class">
             <div class="bell">
-                <img src="https://img.icons8.com/ios-glyphs/30/000000/alarm.png" class="bell"/>
                 <div class="dropdown-content">
                     <asp:ListBox ID="nullsListBox" runat="server" CssClass="lb-class"></asp:ListBox>
                 </div>
+                <img src="https://img.icons8.com/ios-glyphs/30/000000/alarm.png" class="bell"/>
             </div>
             <div class="settings">
                 <img src="https://img.icons8.com/material/30/000000/automatic.png"/>
@@ -72,16 +72,16 @@
                 </HeaderTemplate>
                 <ItemTemplate>
                     <tr style="border:1px solid black">
-                    <td style="background-color:#ff5d55; border:1px solid black;"> <%# DataBinder.Eval(Container.DataItem, "key") %> </td>
+                    <td style="background-color:orange; border:1px solid black;"> <%# DataBinder.Eval(Container.DataItem, "key") %> </td>
                     <td style="border:1px solid black"> <%# DataBinder.Eval(Container.DataItem, "value") %></td>
                 </tr>
                 </ItemTemplate>
             </asp:Repeater>
         </div>
             <div class="bi-btn">
-                <asp:Button ID="Button1" runat="server" Text="Power BI" OnClick="Button1_Click" />
+                <asp:Button ID="Button1" runat="server" Text="Power BI" OnClick="Button1_Click" CssClass="btn-class" />
                 <br />
-                <asp:Button ID="EmailBtn" runat="server" Text="Send Email" OnClick="EmailBtn_Click" />
+                <asp:Button ID="EmailBtn" runat="server" Text="Send Email" OnClick="EmailBtn_Click" CssClass="btn-class" />
             </div>
             
         </div>

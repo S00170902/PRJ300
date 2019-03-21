@@ -1,7 +1,7 @@
 ﻿.btn-class {
     border-radius: 8px;
     padding: 5px;
-    background-color: #e61610;
+    background-color: darkblue;
     color: white;
 }
 
@@ -11,20 +11,18 @@
 
 .user {
     position: absolute;
-    top: 0;
     right: 10%;
+    top: 0;
 }
 
 .bell {
-    position: absolute;
     padding: 10px;
-    left: 50%;
 }
 
 .settings {
     position: absolute;
-    top: 0;
     right: 20%;
+    top: 0;
 }
 
 .div-class {

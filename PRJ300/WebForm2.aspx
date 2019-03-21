@@ -44,7 +44,7 @@
             </asp:Repeater>
         </div>
                         <div class="bi-btn">
-                <asp:Button ID="Button1" runat="server" Text="Power BI" OnClick="Button1_Click" />
+                <asp:Button ID="Button1" runat="server" Text="Power BI" OnClick="Button1_Click" CssClass="btn-class"/>
             </div>
         </div>
     </form>
